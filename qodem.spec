@@ -2,7 +2,7 @@
 
 Name:		qodem
 Version:	1.0
-Release:	1%{?dist}.git%{commit_id}
+Release:	2%{?dist}.git%{commit_id}
 Summary:	A Qmodem clone for Linux
 
 License:	CC0
@@ -37,15 +37,15 @@ make %{?_smp_mflags}
 %install
 %make_install
 
+rm -f $RPM_BUILD_ROOT%{_mandir}/man1/xqodem.1*
+rm -f $RPM_BUILD_ROOT%{_bindir}/xqodem
 
 %files
 %license COPYING
 %doc README.md
 
 %{_bindir}/qodem
-%{_bindir}/xqodem
 %{_mandir}/man1/qodem.1*
-%{_mandir}/man1/xqodem.1*
 
 %changelog
 * Tue Oct 20 2015 Lars Kellogg-Stedman <lars@redhat.com> - 1.0-1.git4753513
